@@ -9,29 +9,7 @@ interface ExperienceProps {
 
 const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
   return (
-    <section id="experience" className="py-40 bg-white relative flex items-center justify-center border-t border-gray-100 overflow-hidden">
-
-      {/* Rhythm Visualization - Animated bars ONLY when playing */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="flex items-end justify-center gap-2 h-40 opacity-20">
-          {[...Array(12)].map((_, i) => (
-            <motion.div
-              key={i}
-              className="w-2 bg-black rounded-full"
-              animate={isPlaying ? {
-                height: [20, Math.random() * 100 + 40, 30, Math.random() * 80 + 20, 20],
-              } : { height: 20 }}
-              transition={isPlaying ? {
-                duration: 0.8 + Math.random() * 0.4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-                delay: i * 0.1
-              } : { duration: 0.5 }} // Smooth transition to stop
-            />
-          ))}
-        </div>
-      </div>
+    <section id="experience" className="py-20 md:py-40 bg-white relative flex flex-col items-center justify-center border-t border-gray-100 overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.div
@@ -59,18 +37,38 @@ const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
           <p className="font-display font-bold text-5xl md:text-7xl text-black mb-8 uppercase tracking-tight">
             Atmósfera Ultra
           </p>
-
-          <div className="w-[1px] h-20 bg-black/20 mx-auto my-10" />
-
-          <p className="font-body text-gray-600 text-lg md:text-xl max-w-xl mx-auto leading-relaxed font-light">
-            Una experiencia auditiva curada para acompañar la frescura de Monster Ultra White.
-            Sonidos ambientales, pads sintéticos y energía latente.
-            <br /><br />
-            <span className="text-sm text-gray-400 font-medium block mt-4">
-              {isPlaying ? '🎵 Reproduciendo...' : 'Toca el icono de audífonos para sumergirte.'}
-            </span>
-          </p>
         </motion.div>
+      </div>
+
+      {/* Rhythm Visualization - Has its own dedicated space */}
+      <div className="w-full flex items-end justify-center gap-2 h-32 my-10">
+        {[...Array(12)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="w-3 md:w-4 bg-black/20 rounded-full"
+            animate={isPlaying ? {
+              height: [20, Math.random() * 80 + 30, 25, Math.random() * 60 + 20, 20],
+            } : { height: 20 }}
+            transition={isPlaying ? {
+              duration: 0.8 + Math.random() * 0.4,
+              repeat: Infinity,
+              repeatType: "reverse",
+              ease: "easeInOut",
+              delay: i * 0.1
+            } : { duration: 0.5 }}
+          />
+        ))}
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10 text-center">
+        <p className="font-body text-gray-600 text-lg md:text-xl max-w-xl mx-auto leading-relaxed font-light">
+          Una experiencia auditiva curada para acompañar la frescura de Monster Ultra White.
+          Sonidos ambientales, pads sintéticos y energía latente.
+          <br /><br />
+          <span className="text-sm text-gray-400 font-bold tracking-widest uppercase block mt-4">
+            {isPlaying ? 'Reproduciendo...' : 'Toca el icono de audífonos para sumergirte.'}
+          </span>
+        </p>
       </div>
     </section>
   );

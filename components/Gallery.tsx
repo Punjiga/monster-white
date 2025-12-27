@@ -13,7 +13,7 @@ const Gallery: React.FC = () => {
    };
 
    return (
-      <section id="visuals" className="py-40 bg-white text-black overflow-hidden relative">
+      <section id="visuals" className="py-20 md:py-40 bg-white text-black overflow-hidden relative">
          <div className="container mx-auto px-6 md:px-12 mb-20 flex flex-col md:flex-row justify-between items-end">
             <div>
                <h2 className="font-display font-bold text-7xl md:text-9xl mb-4 text-black uppercase tracking-tighter">Estética</h2>

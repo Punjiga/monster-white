@@ -15,7 +15,11 @@ const Footer: React.FC<FooterProps> = ({ scrollToTop }) => {
               className="font-display font-bold text-6xl text-black tracking-tighter hover:text-gray-600 transition-colors cursor-pointer"
               aria-label="Ir arriba"
             >
-              M
+              <img
+                src="/content/icon.png"
+                alt="Ir arriba"
+                className="w-16 h-16 object-contain hover:opacity-70 transition-opacity"
+              />
             </button>
           </div>
 

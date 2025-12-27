@@ -23,10 +23,10 @@ const features: Feature[] = [
 
 const Concept: React.FC = () => {
   return (
-    <section id="concept" className="py-32 bg-white relative overflow-hidden">
-      
+    <section id="concept" className="py-16 md:py-32 bg-white relative overflow-hidden">
+
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -36,7 +36,7 @@ const Concept: React.FC = () => {
           <h2 className="font-display font-bold text-6xl md:text-8xl mb-8 text-black uppercase tracking-tight">El Concepto</h2>
           <div className="w-24 h-1 bg-black mx-auto mb-10"></div>
           <p className="font-body text-gray-700 max-w-3xl mx-auto text-xl leading-relaxed font-light">
-            Algunas personas son imposibles de complacer. En cuanto consiguen lo que creían querer, ya piden otra cosa. 
+            Algunas personas son imposibles de complacer. En cuanto consiguen lo que creían querer, ya piden otra cosa.
             <strong className="text-black font-semibold"> Ultra White</strong> es la respuesta a esa exigencia.
           </p>
         </motion.div>
@@ -54,17 +54,17 @@ const Concept: React.FC = () => {
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity duration-500 text-black">
                 <feature.icon size={120} strokeWidth={1} />
               </div>
-              
+
               <div className="relative z-10">
                 <div className="w-14 h-14 bg-white border border-gray-100 rounded-full flex items-center justify-center mb-8 text-black group-hover:bg-black group-hover:text-white transition-colors duration-500 shadow-sm">
-                    <feature.icon size={28} />
+                  <feature.icon size={28} />
                 </div>
                 <h3 className="font-display font-bold text-3xl mb-4 tracking-wide uppercase text-black">{feature.title}</h3>
                 <p className="font-body text-gray-600 leading-relaxed text-base">
-                    {feature.description}
+                  {feature.description}
                 </p>
               </div>
-              
+
               <div className="absolute bottom-0 left-0 w-0 h-[4px] bg-black group-hover:w-full transition-all duration-700 ease-in-out" />
             </motion.div>
           ))}
