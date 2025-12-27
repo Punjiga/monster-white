@@ -23,6 +23,10 @@ function App() {
     }
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="antialiased selection:bg-black selection:text-white bg-white">
       {/* Local Audio Player - Hidden */}
@@ -34,7 +38,6 @@ function App() {
         className="hidden"
       />
 
-      {/* Passing isPlaying (inverted logic of isMuted) to Navbar */}
       <Navbar isMuted={!isPlaying} toggleAudio={toggleAudio} />
 
       <main>
@@ -42,9 +45,9 @@ function App() {
         <Concept />
         <Gallery />
         <VideoSection />
-        <Experience />
+        <Experience isPlaying={isPlaying} toggleAudio={toggleAudio} />
       </main>
-      <Footer />
+      <Footer scrollToTop={scrollToTop} />
     </div>
   );
 }

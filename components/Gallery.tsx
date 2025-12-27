@@ -8,8 +8,7 @@ const Gallery: React.FC = () => {
    // Local Monster Energy Ultra White images from /content folder
    const LOCAL_IMAGES = {
       img1: "/content/img (1).jpg",
-      img2: "/content/img (2).jpg",
-      img3: "/content/img (3).jpg"
+      img2: "/content/img (2).jpg"
    };
 
    return (
@@ -26,12 +25,12 @@ const Gallery: React.FC = () => {
 
          <div className="flex flex-col md:flex-row w-full gap-10 px-6 md:px-12 md:h-[650px]">
 
-            {/* Card 1: Pure Product - Clean Shot */}
+            {/* Card 1 */}
             <motion.div
                initial={{ opacity: 0, y: 50 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               className="flex-1 relative group overflow-hidden bg-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500"
+               className="flex-1 relative group overflow-hidden bg-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 min-h-[400px]"
             >
                <div className="absolute inset-0 overflow-hidden">
                   <img
@@ -40,54 +39,30 @@ const Gallery: React.FC = () => {
                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                </div>
-               <div className="absolute bottom-0 left-0 p-8 z-10">
-                  <span className="font-display font-bold text-6xl text-gray-200 group-hover:text-black transition-colors duration-300">01</span>
-                  <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2">Full Profile</p>
+               <div className="absolute bottom-0 left-0 p-8 z-10 bg-gradient-to-t from-black/50 to-transparent w-full">
+                  <span className="font-display font-bold text-6xl text-white/80 group-hover:text-white transition-colors duration-300">01</span>
+                  <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2 text-white/80">Full Profile</p>
                </div>
             </motion.div>
 
-            {/* Card 2: Detail Shot - Simulated Macro of the Top/Tab via CSS Object Position */}
+            {/* Card 2 */}
             <motion.div
                initial={{ opacity: 0, y: 50 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
                transition={{ delay: 0.2 }}
-               className="flex-1 relative group overflow-hidden bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500"
+               className="flex-1 relative group overflow-hidden bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 min-h-[400px]"
             >
-               {/* Full image with hover effects */}
                <div className="absolute inset-0 overflow-hidden">
                   <img
                      src={LOCAL_IMAGES.img2}
                      alt="Monster Ultra White Visual 2"
-                     className="w-full h-full object-cover opacity-90 grayscale group-hover:grayscale-0 transition-all duration-700"
+                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                   />
                </div>
-
-               <div className="absolute inset-0 bg-white/20 backdrop-blur-[2px] group-hover:backdrop-blur-none transition-all duration-700"></div>
-
-               <div className="absolute bottom-0 left-0 p-8 z-10">
-                  <span className="font-display font-bold text-6xl text-gray-300 group-hover:text-black transition-colors duration-300">02</span>
-                  <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2">Top Detail</p>
-               </div>
-            </motion.div>
-
-            {/* Card 3: Brand Identity - Typography Focus */}
-            <motion.div
-               initial={{ opacity: 0, y: 50 }}
-               whileInView={{ opacity: 1, y: 0 }}
-               viewport={{ once: true }}
-               transition={{ delay: 0.4 }}
-               className="flex-1 relative group overflow-hidden bg-black shadow-lg hover:shadow-2xl transition-all duration-500 flex items-center justify-center border border-gray-100"
-            >
-               <div className="text-center p-12 relative z-10">
-                  <h4 className="font-display font-bold text-6xl text-white/10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full scale-150 group-hover:scale-110 transition-transform duration-700 select-none tracking-tighter">MONSTER</h4>
-                  <div className="font-display font-bold text-3xl tracking-[0.4em] text-white border-4 border-white p-6 inline-block group-hover:bg-white group-hover:text-black transition-colors duration-300">
-                     ULTRA
-                  </div>
-               </div>
-               <div className="absolute bottom-0 left-0 p-8 z-10">
-                  <span className="font-display font-bold text-6xl text-gray-600 group-hover:text-white transition-colors duration-300">03</span>
-                  <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2 text-gray-400">Identity</p>
+               <div className="absolute bottom-0 left-0 p-8 z-10 bg-gradient-to-t from-black/50 to-transparent w-full">
+                  <span className="font-display font-bold text-6xl text-white/80 group-hover:text-white transition-colors duration-300">02</span>
+                  <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2 text-white/80">Detail Shot</p>
                </div>
             </motion.div>
          </div>

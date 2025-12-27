@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Zap } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
@@ -8,7 +9,7 @@ const Hero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-white">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-white">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-white">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gray-100 rounded-full blur-[120px] pointer-events-none" />
@@ -56,28 +57,34 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Product Visual */}
+        {/* Product Visual - Larger, Rotated with Lightning Hover */}
         <motion.div
           style={{ y: yCan, opacity }}
           className="order-1 md:order-2 flex justify-center relative"
         >
-          {/* Main Can Visual */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0, rotate: 5 }}
-            animate={{ scale: 1, opacity: 1, rotate: 0 }}
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1, rotate: 5 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative z-20"
+            className="relative z-20 group"
           >
-            <div className="relative w-[300px] h-[550px] md:w-[380px] md:h-[700px] drop-shadow-2xl">
-              {/* Official Image Asset - Local */}
+            {/* Lightning Bolt Effect - Behind Can */}
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <Zap
+                size={400}
+                strokeWidth={1}
+                className="text-yellow-400 drop-shadow-[0_0_30px_rgba(250,204,21,0.8)] animate-pulse"
+                fill="rgba(250,204,21,0.3)"
+              />
+            </div>
+
+            {/* Larger Can Image with Rotation */}
+            <div className="relative w-[350px] h-[650px] md:w-[450px] md:h-[850px] drop-shadow-2xl transform rotate-3">
               <img
                 src="/content/monsterHeader.png"
                 alt="Lata Monster Energy Ultra White"
-                className="w-full h-full object-contain filter drop-shadow-[0_30px_60px_rgba(0,0,0,0.2)]"
+                className="w-full h-full object-contain filter drop-shadow-[0_30px_60px_rgba(0,0,0,0.25)] group-hover:drop-shadow-[0_40px_80px_rgba(0,0,0,0.35)] transition-all duration-500"
               />
-
-              {/* Subtle atmospherics */}
-              <div className="absolute top-20 right-0 w-32 h-32 bg-blue-50/50 rounded-full blur-3xl opacity-50 mix-blend-multiply"></div>
             </div>
           </motion.div>
         </motion.div>
