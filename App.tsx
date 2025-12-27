@@ -66,10 +66,10 @@ function App() {
 
               <button
                 onClick={startExperience}
-                className="group relative px-12 py-5 bg-black text-white font-display font-bold text-xl uppercase tracking-[0.3em] hover:scale-105 transition-transform duration-300"
+                className="group relative px-12 py-5 bg-black text-white font-display font-bold text-xl uppercase tracking-[0.3em] hover:bg-white hover:text-black hover:scale-105 transition-all duration-300"
               >
                 <span className="relative z-10">Unleash the Beast</span>
-                <div className="absolute inset-0 bg-gray-800 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+                <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
               </button>
             </motion.div>
           </motion.div>
