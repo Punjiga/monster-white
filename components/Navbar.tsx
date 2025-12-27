@@ -42,9 +42,13 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            <span className="font-display font-bold text-3xl md:text-4xl tracking-tighter text-black">
-              M
-            </span>
+            {/* Replaced 'M' Text with Local Icon */}
+            <img
+              src="/content/icon.png"
+              alt="Monster Icon"
+              className="w-10 h-10 object-contain drop-shadow-sm"
+            />
+
             <div className="hidden md:flex flex-col leading-none">
               <span className="font-display font-bold text-lg tracking-wider text-black">
                 MONSTER ENERGY
@@ -70,7 +74,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
 
             <button
               onClick={toggleAudio}
-              className="p-2 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors text-black"
+              className={`p-2 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors text-black ${!isMuted ? 'animate-pulse bg-gray-50' : ''}`}
               aria-label="Toggle Audio"
             >
               {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
@@ -98,9 +102,9 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
               <a href="#experience" onClick={(e) => scrollToSection(e, 'experience')} className="text-black font-bold">Experiencia</a>
               <button
                 onClick={() => { setShowModal(true); setIsMenuOpen(false); }}
-                className="text-black font-bold text-left"
+                className="text-black font-bold text-left uppercase"
               >
-                Comprar
+                COMPRAR
               </button>
             </motion.div>
           )}

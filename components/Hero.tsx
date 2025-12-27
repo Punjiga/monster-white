@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { Zap } from 'lucide-react';
 
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
@@ -9,7 +8,7 @@ const Hero: React.FC = () => {
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-12 bg-white">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-24 pb-32 md:pb-12 bg-white">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-white">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gray-100 rounded-full blur-[120px] pointer-events-none" />
@@ -57,29 +56,19 @@ const Hero: React.FC = () => {
           </motion.div>
         </motion.div>
 
-        {/* Product Visual - Larger, Rotated with Lightning Hover */}
+        {/* Product Visual - Larger, Straight, No Lightning, No Rotation on Hover */}
         <motion.div
           style={{ y: yCan, opacity }}
           className="order-1 md:order-2 flex justify-center relative"
         >
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1, rotate: 5 }}
+            animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, ease: "easeOut" }}
             className="relative z-20 group"
           >
-            {/* Lightning Bolt Effect - Behind Can */}
-            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <Zap
-                size={400}
-                strokeWidth={1}
-                className="text-yellow-400 drop-shadow-[0_0_30px_rgba(250,204,21,0.8)] animate-pulse"
-                fill="rgba(250,204,21,0.3)"
-              />
-            </div>
-
-            {/* Larger Can Image with Rotation */}
-            <div className="relative w-[350px] h-[650px] md:w-[450px] md:h-[850px] drop-shadow-2xl transform rotate-3">
+            {/* Larger Can Image - Straight */}
+            <div className="relative w-[360px] h-[660px] md:w-[480px] md:h-[900px] drop-shadow-2xl">
               <img
                 src="/content/monsterHeader.png"
                 alt="Lata Monster Energy Ultra White"
@@ -90,12 +79,12 @@ const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator - Bottom padding adjusted to prevent overlap */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+        className="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 mix-blend-difference md:mix-blend-normal"
       >
         <span className="font-display text-xs tracking-widest uppercase text-gray-400">Scroll</span>
         <div className="w-[2px] h-12 bg-gray-200 overflow-hidden">

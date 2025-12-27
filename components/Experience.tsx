@@ -11,7 +11,7 @@ const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
   return (
     <section id="experience" className="py-40 bg-white relative flex items-center justify-center border-t border-gray-100 overflow-hidden">
 
-      {/* Rhythm Visualization - Animated bars when playing */}
+      {/* Rhythm Visualization - Animated bars ONLY when playing */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="flex items-end justify-center gap-2 h-40 opacity-20">
           {[...Array(12)].map((_, i) => (
@@ -21,13 +21,13 @@ const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
               animate={isPlaying ? {
                 height: [20, Math.random() * 100 + 40, 30, Math.random() * 80 + 20, 20],
               } : { height: 20 }}
-              transition={{
+              transition={isPlaying ? {
                 duration: 0.8 + Math.random() * 0.4,
                 repeat: Infinity,
                 repeatType: "reverse",
                 ease: "easeInOut",
                 delay: i * 0.1
-              }}
+              } : { duration: 0.5 }} // Smooth transition to stop
             />
           ))}
         </div>

@@ -8,7 +8,8 @@ const Gallery: React.FC = () => {
    // Local Monster Energy Ultra White images from /content folder
    const LOCAL_IMAGES = {
       img1: "/content/img (1).jpg",
-      img2: "/content/img (2).jpg"
+      img2: "/content/img (2).jpg",
+      img3: "/content/img (3).jpg"
    };
 
    return (
@@ -36,7 +37,7 @@ const Gallery: React.FC = () => {
                   <img
                      src={LOCAL_IMAGES.img1}
                      alt="Monster Ultra White Visual 1"
-                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                </div>
                <div className="absolute bottom-0 left-0 p-8 z-10 bg-gradient-to-t from-black/50 to-transparent w-full">
@@ -57,12 +58,33 @@ const Gallery: React.FC = () => {
                   <img
                      src={LOCAL_IMAGES.img2}
                      alt="Monster Ultra White Visual 2"
-                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
                   />
                </div>
                <div className="absolute bottom-0 left-0 p-8 z-10 bg-gradient-to-t from-black/50 to-transparent w-full">
                   <span className="font-display font-bold text-6xl text-white/80 group-hover:text-white transition-colors duration-300">02</span>
                   <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2 text-white/80">Detail Shot</p>
+               </div>
+            </motion.div>
+
+            {/* Card 3 */}
+            <motion.div
+               initial={{ opacity: 0, y: 50 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ delay: 0.4 }}
+               className="flex-1 relative group overflow-hidden bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 min-h-[400px]"
+            >
+               <div className="absolute inset-0 overflow-hidden">
+                  <img
+                     src={LOCAL_IMAGES.img3}
+                     alt="Monster Ultra White Visual 3"
+                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                  />
+               </div>
+               <div className="absolute bottom-0 left-0 p-8 z-10 bg-gradient-to-t from-black/50 to-transparent w-full">
+                  <span className="font-display font-bold text-6xl text-white/80 group-hover:text-white transition-colors duration-300">03</span>
+                  <p className="font-body text-sm font-semibold tracking-widest uppercase mt-2 text-white/80">Lifestyle</p>
                </div>
             </motion.div>
          </div>
