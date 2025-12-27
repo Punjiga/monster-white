@@ -40,9 +40,15 @@ function App() {
 
   useEffect(() => {
     const handleVisibilityChange = () => {
-      if (document.hidden && isPlaying) {
+      if (showSplash) return; // Don't do anything if we haven't started
+
+      if (document.hidden) {
         audioRef.current?.pause();
-        setIsPlaying(false);
+      } else if (isPlaying) {
+        audioRef.current?.play().catch(() => {
+          // Fallback if browser blocks auto-resume
+          setIsPlaying(false);
+        });
       }
     };
 
@@ -50,7 +56,7 @@ function App() {
     return () => {
       document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [isPlaying]);
+  }, [isPlaying, showSplash]);
 
   return (
     <div className="antialiased selection:bg-black selection:text-white bg-white">
@@ -80,7 +86,7 @@ function App() {
 
               <button
                 onClick={startExperience}
-                className="group relative px-7 py-3 md:px-12 md:py-5 bg-black text-white font-display font-bold text-lg md:text-xl uppercase tracking-[0.2em] md:tracking-[0.3em] hover:bg-white hover:text-black hover:scale-105 transition-all duration-300"
+                className="group relative px-6 py-2.5 md:px-12 md:py-5 bg-black text-white font-display font-bold text-lg md:text-xl uppercase tracking-[0.2em] md:tracking-[0.3em] hover:bg-white hover:text-black hover:scale-105 transition-all duration-300 w-max whitespace-nowrap"
               >
                 <span className="relative z-10 -mr-[0.2em] md:-mr-[0.3em]">Unleash the Beast</span>
                 <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
