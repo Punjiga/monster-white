@@ -56,19 +56,19 @@ function App() {
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
-              className="relative z-10 flex flex-col items-center gap-12"
+              className="relative z-10 flex flex-col items-center gap-12 text-center"
             >
               <img
                 src="/content/icon.png"
                 alt="Monster Icon"
-                className="w-24 h-24 object-contain"
+                className="w-24 h-24 object-contain block mx-auto"
               />
 
               <button
                 onClick={startExperience}
                 className="group relative px-12 py-5 bg-black text-white font-display font-bold text-xl uppercase tracking-[0.3em] hover:bg-white hover:text-black hover:scale-105 transition-all duration-300"
               >
-                <span className="relative z-10">Unleash the Beast</span>
+                <span className="relative z-10 -mr-[0.3em]">Unleash the Beast</span>
                 <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
               </button>
             </motion.div>
