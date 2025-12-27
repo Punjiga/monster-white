@@ -37,8 +37,8 @@ const Hero: React.FC = () => {
 
           <div className="flex flex-col md:flex-row items-center gap-6">
             <div className="flex items-center gap-4 group cursor-pointer">
-              <span className="w-16 h-[2px] bg-black group-hover:w-24 transition-all duration-300"></span>
-              <span className="font-display font-bold text-2xl text-black uppercase tracking-wide">Unleash the Beast</span>
+              <span className="w-12 md:w-16 h-[2px] bg-black group-hover:w-24 transition-all duration-300"></span>
+              <span className="font-display font-bold text-lg md:text-2xl text-black uppercase tracking-wide">Unleash the Beast</span>
             </div>
           </div>
         </motion.div>

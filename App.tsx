@@ -38,6 +38,20 @@ function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.hidden && isPlaying) {
+        audioRef.current?.pause();
+        setIsPlaying(false);
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, [isPlaying]);
+
   return (
     <div className="antialiased selection:bg-black selection:text-white bg-white">
       {/* Splash Screen Overlay */}
@@ -66,9 +80,9 @@ function App() {
 
               <button
                 onClick={startExperience}
-                className="group relative px-12 py-5 bg-black text-white font-display font-bold text-xl uppercase tracking-[0.3em] hover:bg-white hover:text-black hover:scale-105 transition-all duration-300"
+                className="group relative px-7 py-3 md:px-12 md:py-5 bg-black text-white font-display font-bold text-lg md:text-xl uppercase tracking-[0.2em] md:tracking-[0.3em] hover:bg-white hover:text-black hover:scale-105 transition-all duration-300"
               >
-                <span className="relative z-10 -mr-[0.3em]">Unleash the Beast</span>
+                <span className="relative z-10 -mr-[0.2em] md:-mr-[0.3em]">Unleash the Beast</span>
                 <div className="absolute inset-0 bg-gray-800 opacity-0 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
               </button>
             </motion.div>
