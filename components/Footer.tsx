@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ scrollToTop }) => {
         </div>
 
         <div className="border-t border-gray-200 pt-10">
-          <p className="font-body text-xs text-gray-500 leading-relaxed text-justify md:text-center max-w-5xl mx-auto tracking-wide mb-8">
+          <p className="font-body text-xs text-gray-500 leading-relaxed text-center max-w-5xl mx-auto tracking-wide mb-8">
             "Este es un proyecto creativo no oficial realizado únicamente con fines de portfolio y experimentación visual.
             Monster Energy® y todos los materiales relacionados son marcas registradas de sus respectivos propietarios.
             La música, los videos y cualquier contenido multimedia pertenecen a sus respectivos creadores y se utilizan únicamente como referencia visual y auditiva, sin fines de lucro ni intención comercial.

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Concept from './components/Concept';
@@ -8,8 +8,18 @@ import Experience from './components/Experience';
 import Footer from './components/Footer';
 
 function App() {
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true); // Auto-play enabled
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  // Auto-play music on mount
+  useEffect(() => {
+    if (audioRef.current && isPlaying) {
+      audioRef.current.play().catch(() => {
+        // Browser blocked autoplay, user needs to interact
+        setIsPlaying(false);
+      });
+    }
+  }, []);
 
   const toggleAudio = () => {
     if (audioRef.current) {

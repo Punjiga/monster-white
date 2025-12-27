@@ -1,11 +1,7 @@
 import React from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const Gallery: React.FC = () => {
-   const { scrollYProgress } = useScroll();
-   const x = useTransform(scrollYProgress, [0, 1], [0, -100]);
-
-   // Local Monster Energy Ultra White images from /content folder
    const LOCAL_IMAGES = {
       img1: "/content/img (1).jpg",
       img2: "/content/img (2).jpg",
@@ -15,13 +11,24 @@ const Gallery: React.FC = () => {
    return (
       <section id="visuals" className="py-20 md:py-40 bg-white text-black overflow-hidden relative">
          <div className="container mx-auto px-6 md:px-12 mb-20 flex flex-col md:flex-row justify-between items-end">
-            <div>
+            <motion.div
+               initial={{ opacity: 0, y: 30 }}
+               whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6 }}
+            >
                <h2 className="font-display font-bold text-7xl md:text-9xl mb-4 text-black uppercase tracking-tighter">Estética</h2>
                <div className="w-32 h-2 bg-black"></div>
-            </div>
-            <h3 className="font-display font-medium text-xl md:text-2xl tracking-[0.2em] text-gray-400 uppercase mt-6 md:mt-0">
+            </motion.div>
+            <motion.h3
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 1 }}
+               viewport={{ once: true }}
+               transition={{ duration: 0.6, delay: 0.2 }}
+               className="font-display font-medium text-xl md:text-2xl tracking-[0.2em] text-gray-400 uppercase mt-6 md:mt-0"
+            >
                Official Visuals
-            </h3>
+            </motion.h3>
          </div>
 
          <div className="flex flex-col md:flex-row w-full gap-10 px-6 md:px-12 md:h-[650px]">
@@ -31,6 +38,7 @@ const Gallery: React.FC = () => {
                initial={{ opacity: 0, y: 50 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
+               transition={{ duration: 0.6 }}
                className="flex-1 relative group overflow-hidden bg-gray-50 shadow-lg hover:shadow-2xl transition-all duration-500 min-h-[400px]"
             >
                <div className="absolute inset-0 overflow-hidden">
@@ -51,7 +59,7 @@ const Gallery: React.FC = () => {
                initial={{ opacity: 0, y: 50 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               transition={{ delay: 0.2 }}
+               transition={{ duration: 0.6, delay: 0.15 }}
                className="flex-1 relative group overflow-hidden bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 min-h-[400px]"
             >
                <div className="absolute inset-0 overflow-hidden">
@@ -72,7 +80,7 @@ const Gallery: React.FC = () => {
                initial={{ opacity: 0, y: 50 }}
                whileInView={{ opacity: 1, y: 0 }}
                viewport={{ once: true }}
-               transition={{ delay: 0.4 }}
+               transition={{ duration: 0.6, delay: 0.3 }}
                className="flex-1 relative group overflow-hidden bg-gray-100 shadow-lg hover:shadow-2xl transition-all duration-500 min-h-[400px]"
             >
                <div className="absolute inset-0 overflow-hidden">
@@ -88,10 +96,6 @@ const Gallery: React.FC = () => {
                </div>
             </motion.div>
          </div>
-
-         <motion.div style={{ x }} className="absolute top-1/3 left-0 w-full pointer-events-none opacity-[0.02] whitespace-nowrap">
-            <span className="font-display font-bold text-[15rem] md:text-[25rem] tracking-tighter">UNLEASH THE BEAST UNLEASH THE BEAST</span>
-         </motion.div>
       </section>
    );
 };

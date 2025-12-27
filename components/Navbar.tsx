@@ -20,7 +20,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth scroll to section
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
@@ -42,7 +41,6 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-3"
           >
-            {/* Replaced 'M' Text with Local Icon */}
             <img
               src="/content/icon.png"
               alt="Monster Icon"
@@ -72,13 +70,20 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
               </button>
             </div>
 
-            <button
-              onClick={toggleAudio}
-              className={`p-2 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors text-black ${!isMuted ? 'animate-pulse bg-gray-50' : ''}`}
-              aria-label="Toggle Audio"
-            >
-              {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
-            </button>
+            {/* Audio Toggle with Tooltip */}
+            <div className="relative group">
+              <button
+                onClick={toggleAudio}
+                className={`p-2 rounded-full border border-gray-200 hover:bg-gray-100 transition-colors text-black ${!isMuted ? 'animate-pulse bg-gray-50' : ''}`}
+                aria-label="Toggle Audio"
+              >
+                {isMuted ? <VolumeX size={20} /> : <Volume2 size={20} />}
+              </button>
+              {/* Tooltip Bubble */}
+              <span className="absolute top-full left-1/2 -translate-x-1/2 mt-2 text-xs bg-black text-white px-3 py-1.5 rounded-full whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none shadow-lg">
+                {isMuted ? 'Activar audio ;)' : 'Desactivar audio'}
+              </span>
+            </div>
 
             <button
               className="md:hidden text-black p-2"
