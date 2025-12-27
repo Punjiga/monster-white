@@ -9,7 +9,7 @@ const Gallery: React.FC = () => {
    };
 
    return (
-      <section id="visuals" className="py-20 md:py-40 bg-white text-black overflow-hidden relative">
+      <section id="visuals" className="py-20 md:py-32 bg-white text-black overflow-hidden relative">
          <div className="container mx-auto px-6 md:px-12 mb-20 flex flex-col md:flex-row justify-between items-end">
             <motion.div
                initial={{ opacity: 0, y: 30 }}

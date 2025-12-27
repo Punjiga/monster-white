@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const VideoSection: React.FC = () => {
   return (
-    <section className="py-32 bg-gray-50 relative overflow-hidden flex flex-col items-center border-t border-gray-100">
+    <section className="py-20 md:py-32 bg-gray-50 relative overflow-hidden flex flex-col items-center border-t border-gray-100">
 
       <div className="container mx-auto px-6 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-center gap-20">
 

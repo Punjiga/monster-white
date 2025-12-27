@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden pt-12 pb-12 md:py-24 bg-white">
+    <section id="hero" className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20 md:py-32 bg-white">
       {/* Background Ambience */}
       <div className="absolute inset-0 bg-white">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] bg-gray-100 rounded-full blur-[120px] pointer-events-none" />

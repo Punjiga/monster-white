@@ -9,7 +9,7 @@ interface ExperienceProps {
 
 const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
   return (
-    <section id="experience" className="py-20 md:py-40 bg-white relative flex flex-col items-center justify-center border-t border-gray-100 overflow-hidden">
+    <section id="experience" className="py-20 md:py-32 bg-white relative flex flex-col items-center justify-center border-t border-gray-100 overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10 text-center">
         <motion.div
@@ -22,8 +22,8 @@ const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
           <button
             onClick={toggleAudio}
             className={`inline-flex items-center justify-center w-24 h-24 rounded-full mb-10 border-2 transition-all duration-500 cursor-pointer ${isPlaying
-                ? 'bg-black text-white border-black animate-pulse'
-                : 'bg-gray-50 text-black border-gray-200 hover:bg-gray-100'
+              ? 'bg-black text-white border-black animate-pulse'
+              : 'bg-gray-50 text-black border-gray-200 hover:bg-gray-100'
               }`}
             aria-label="Toggle Audio"
           >
@@ -63,7 +63,6 @@ const Experience: React.FC<ExperienceProps> = ({ isPlaying, toggleAudio }) => {
       <div className="container mx-auto px-6 relative z-10 text-center">
         <p className="font-body text-gray-600 text-lg md:text-xl max-w-xl mx-auto leading-relaxed font-light">
           Una experiencia auditiva curada para acompañar la frescura de Monster Ultra White.
-          Sonidos ambientales, pads sintéticos y energía latente.
           <br /><br />
           <span className="text-sm text-gray-400 font-bold tracking-widest uppercase block mt-4">
             {isPlaying ? 'Reproduciendo...' : 'Toca el icono de audífonos para sumergirte.'}

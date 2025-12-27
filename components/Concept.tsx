@@ -11,7 +11,7 @@ const features: Feature[] = [
   },
   {
     title: "Sabor Ligero",
-    description: "Un perfil de sabor cítrico y refrescante. Menos dulce, más crujiente. Perfecto para cualquier momento.",
+    description: "Un perfil de sabor cítrico y refrescante. Menos dulce, más poder. Perfecto para cualquier momento.",
     icon: Feather
   },
   {
@@ -23,7 +23,7 @@ const features: Feature[] = [
 
 const Concept: React.FC = () => {
   return (
-    <section id="concept" className="py-16 md:py-32 bg-white relative overflow-hidden">
+    <section id="concept" className="py-20 md:py-32 bg-white relative overflow-hidden">
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <motion.div

@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ isMuted, toggleAudio }) => {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-6 md:py-8'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm' : 'bg-transparent py-10 md:py-12'
           }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
